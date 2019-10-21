@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <div class="login-box">
+    <div *ngIf="isLogin ; else tempregister">
+      <form [formGroup]="form">
+        <label>Email:</label>
+        <input name="email" formControlName="email">
+        <br>
+        <label>Password:</label>
+        <input name="password" formControlName="password" type="password">
+        <br>
+        <button class="button button-primary" (click)="login()">Login</button>
+        <button class="button button-primary" (click)="loadRegister()">Register</button>
+      </form>
+    </div>
+    <ng-template #tempregister>
+        <form [formGroup]="registerForm">
+            <label>Email:</label>
+            <input name="email" formControlName="email">
+            <br>
+            <label>Password:</label>
+            <input name="password" formControlName="password" type="password">
+            <br>
+            <button class="button button-primary" (click)="register()">Register</button>
+            <button class="button button-primary" (click)="loadLogin()">Login</button>
+          </form>
+    </ng-template>
+  </div>
+  <div class="div2">
+    <h1>Sample app for JWT</h1><br>
+    Response:{{response}}
+  </div>
+</div>
