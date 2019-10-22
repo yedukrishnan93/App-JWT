@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
       this.authSvc.login(val.email, val.password).subscribe((data:any) => {
         console.log("data::",data)
         this.response = data;
+        if(data.message ==="valid user"){
+          if(data.token) localStorage.setItem("token",data.token)
+        }
         console.log('user logged in')
       })
     }
